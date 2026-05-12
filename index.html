@@ -531,11 +531,22 @@
           }
           return;
         }
-        // Title click — toggle inline reveal + sync aria-expanded + focus thumb
+        // Title click — mouse: direct action. Keyboard (Enter on focused link): disclosure pattern.
         const titleLink = e.target.closest('.entry .title a');
         if (titleLink) {
-          e.preventDefault();
           const entry = titleLink.closest('.entry');
+          // e.detail > 0 = real mouse click; e.detail === 0 = keyboard Enter.
+          if (e.detail > 0) {
+            e.preventDefault();
+            if (entry.classList.contains('ig')) {
+              window.open(titleLink.href, '_blank', 'noopener');
+            } else {
+              openVideo(titleLink.dataset.videoId, titleLink.dataset.videoTitle);
+            }
+            return;
+          }
+          // Keyboard activation — reveal + focus thumb (a11y disclosure pattern preserved)
+          e.preventDefault();
           const willOpen = !entry.classList.contains('open');
           entry.classList.toggle('open');
           titleLink.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
