@@ -531,21 +531,18 @@
           }
           return;
         }
-        // Title click — mouse: direct action. Keyboard (Enter on focused link): disclosure pattern.
+        // Title click — videos: mouse direct to modal; IG: always disclosure (photo + caption inline).
         const titleLink = e.target.closest('.entry .title a');
         if (titleLink) {
           const entry = titleLink.closest('.entry');
-          // e.detail > 0 = real mouse click; e.detail === 0 = keyboard Enter.
-          if (e.detail > 0) {
+          const isIg = entry.classList.contains('ig');
+          // Mouse on a video title → straight to modal. IG is always disclosure (caption is content).
+          if (e.detail > 0 && !isIg) {
             e.preventDefault();
-            if (entry.classList.contains('ig')) {
-              window.open(titleLink.href, '_blank', 'noopener');
-            } else {
-              openVideo(titleLink.dataset.videoId, titleLink.dataset.videoTitle);
-            }
+            openVideo(titleLink.dataset.videoId, titleLink.dataset.videoTitle);
             return;
           }
-          // Keyboard activation — reveal + focus thumb (a11y disclosure pattern preserved)
+          // Disclosure pattern — reveal + focus thumb (keyboard for both; mouse for IG)
           e.preventDefault();
           const willOpen = !entry.classList.contains('open');
           entry.classList.toggle('open');
