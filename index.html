@@ -208,17 +208,38 @@
     .entry .thumb {
       margin-top: 14px;
       display: none;
+      /* button reset */
+      border: 0;
+      padding: 0;
+      background: transparent;
+      width: 100%;
+      cursor: pointer;
     }
-    .entry.open .thumb {
-      display: block;
+    .entry.open .thumb { display: block; }
+    .entry .thumb:focus-visible {
+      outline: 2px solid var(--fg);
+      outline-offset: 4px;
     }
     .entry .thumb img {
       display: block;
       width: 100%;
       height: auto;
-      cursor: pointer;
     }
     .entry .title a { cursor: pointer; }
+    /* Quote entries — Diego-voice asides between releases */
+    .entry.quote { }
+    .entry.quote .line {
+      margin: 6px 0 0 0;
+      font: 400 14px/1.5 var(--mono);
+      color: var(--fg);
+      opacity: 0.7;
+      font-style: italic;
+    }
+    .entry.quote.done .line {
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+      opacity: 0.55;
+    }
     .entry .caption {
       display: none;
       margin-top: 18px;
@@ -247,28 +268,38 @@
 
     <main class="entries" id="entries">
 
+            <article class="entry quote">
+        <p class="date">12 may 2026</p>
+        <p class="line">acabo de terminar el curso. próximo destino: fiji y tonga, a bucear.</p>
+      </article>
+
       <article class="entry">
         <p class="date">5 may 2026 · Uganda</p>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=V2kE7KwYJ44" data-video-id="V2kE7KwYJ44" data-video-title="UGANDA: El GORILA de MONTAÑA">UGANDA: El GORILA de MONTAÑA</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/V2kE7KwYJ44/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=V2kE7KwYJ44" data-video-id="V2kE7KwYJ44" data-video-title="UGANDA: El GORILA de MONTAÑA" aria-expanded="false">UGANDA: El GORILA de MONTAÑA</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: UGANDA: El GORILA de MONTAÑA"><img src="https://i.ytimg.com/vi/V2kE7KwYJ44/maxresdefault.jpg" alt="" loading="lazy"></button>
+      </article>
+
+            <article class="entry quote done">
+        <p class="date">~ abr 2026</p>
+        <p class="line">comprando vuelos a uganda</p>
       </article>
 
       <article class="entry">
         <p class="date">17 nov 2025 · Egipto · short</p>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/Onbex5FnwxI" data-video-id="Onbex5FnwxI" data-video-title="Egipto — short">Reportaje completo en mi canal · Egipto</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/Onbex5FnwxI/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/Onbex5FnwxI" data-video-id="Onbex5FnwxI" data-video-title="Egipto — short" aria-expanded="false">Reportaje completo en mi canal · Egipto</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: Reportaje completo en mi canal · Egipto"><img src="https://i.ytimg.com/vi/Onbex5FnwxI/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry">
         <p class="date">14 nov 2025 · Egipto</p>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=LaCIEFq6LhY" data-video-id="LaCIEFq6LhY" data-video-title="El ANTIGUO EGIPTO: Tierra de FARAONES">El ANTIGUO EGIPTO: Tierra de FARAONES</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/LaCIEFq6LhY/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=LaCIEFq6LhY" data-video-id="LaCIEFq6LhY" data-video-title="El ANTIGUO EGIPTO: Tierra de FARAONES" aria-expanded="false">El ANTIGUO EGIPTO: Tierra de FARAONES</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: El ANTIGUO EGIPTO: Tierra de FARAONES"><img src="https://i.ytimg.com/vi/LaCIEFq6LhY/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry ig">
         <p class="date">10 nov 2025 · IG</p>
-        <h2 class="title"><a href="https://instagram.com/p/DQ5EEaZDTSm/" target="_blank" rel="noopener">Casa caribeña</a></h2>
-        <div class="thumb"><img src="assets/ig/cover-DQ5EEaZDTSm.jpg" alt="Casa caribeña — proyectoindy" loading="lazy"></div>
+        <h2 class="title"><a href="https://instagram.com/p/DQ5EEaZDTSm/" target="_blank" rel="noopener" aria-expanded="false">Casa caribeña</a></h2>
+        <button class="thumb" type="button" aria-label="Abrir en Instagram: Casa caribeña"><img src="assets/ig/cover-DQ5EEaZDTSm.jpg" alt="Casa caribeña — proyectoindy" loading="lazy"></button>
         <div class="caption">
           <p>San Andrés, el Caribe colombiano.</p>
           <p>Durante este viaje tuve la oportunidad de adentrarme en la cultura y el corazón de esta antigua isla pirata. En ella, dice la leyenda, el legendario corsario Henry Morgan escondió gran parte del tesoro que acumuló en sus gloriosos años de piratería.</p>
@@ -277,22 +308,27 @@
         </div>
       </article>
 
+            <article class="entry quote done">
+        <p class="date">~ sep 2025</p>
+        <p class="line">editando san andrés</p>
+      </article>
+
       <article class="entry">
         <p class="date">5 ago 2025 · San Andrés · short</p>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/sKXNlxnLy0M" data-video-id="sKXNlxnLy0M" data-video-title="San Andrés — short">San Andrés, el Caribe Colombiano</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/sKXNlxnLy0M/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/sKXNlxnLy0M" data-video-id="sKXNlxnLy0M" data-video-title="San Andrés — short" aria-expanded="false">San Andrés, el Caribe Colombiano</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: San Andrés, el Caribe Colombiano"><img src="https://i.ytimg.com/vi/sKXNlxnLy0M/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry">
         <p class="date">5 ago 2025 · San Andrés, Colombia</p>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=rkhf6b6ewww" data-video-id="rkhf6b6ewww" data-video-title="SAN ANDRÉS, el CARIBE COLOMBIANO">SAN ANDRÉS, el CARIBE COLOMBIANO: PLAYAS, ARRECIFES DE CORAL, RAIZALES Y PIRATAS</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/rkhf6b6ewww/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=rkhf6b6ewww" data-video-id="rkhf6b6ewww" data-video-title="SAN ANDRÉS, el CARIBE COLOMBIANO" aria-expanded="false">SAN ANDRÉS, el CARIBE COLOMBIANO: PLAYAS, ARRECIFES DE CORAL, RAIZALES Y PIRATAS</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: SAN ANDRÉS, el CARIBE COLOMBIANO: PLAYAS, ARRECIFES DE CORAL, RAIZALES Y PIRATAS"><img src="https://i.ytimg.com/vi/rkhf6b6ewww/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry ig">
         <p class="date">29 jul 2025 · IG</p>
-        <h2 class="title"><a href="https://instagram.com/p/DMtWn6DIFqX/" target="_blank" rel="noopener">Tortugas marinas</a></h2>
-        <div class="thumb"><img src="assets/ig/cover-DMtWn6DIFqX.jpg" alt="Tortugas marinas — proyectoindy" loading="lazy"></div>
+        <h2 class="title"><a href="https://instagram.com/p/DMtWn6DIFqX/" target="_blank" rel="noopener" aria-expanded="false">Tortugas marinas</a></h2>
+        <button class="thumb" type="button" aria-label="Abrir en Instagram: Tortugas marinas"><img src="assets/ig/cover-DMtWn6DIFqX.jpg" alt="Tortugas marinas — proyectoindy" loading="lazy"></button>
         <div class="caption">
           <p>Hace ya más de 10 años que existe en la isla de Sal, en el archipiélago de Cabo Verde, una ONG llamada @projectbiodiversity dedicada garantizar la protección de la vida salvaje y el equilibrio de los ecosistemas en esta isla.</p>
           <p>Entre muchos de sus Planes de Protección del Medio Ambiente se encuentra un gran proyecto dirigido a la conservación de la tortuga boba, una de las 7 especies de tortuga marina que existen a nivel mundial, y que anida en las costas de este archipiélago.</p>
@@ -306,32 +342,32 @@
 
       <article class="entry">
         <p class="date">26 jun 2025 · Tenerife · short</p>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/CuF1I8mnkUU" data-video-id="CuF1I8mnkUU" data-video-title="0.4.0. — short">La ruta con mayor desnivel de España: la 0.4.0.</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/CuF1I8mnkUU/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/CuF1I8mnkUU" data-video-id="CuF1I8mnkUU" data-video-title="0.4.0. — short" aria-expanded="false">La ruta con mayor desnivel de España: la 0.4.0.</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: La ruta con mayor desnivel de España: la 0.4.0."><img src="https://i.ytimg.com/vi/CuF1I8mnkUU/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry">
         <p class="date">26 jun 2025 · Cabo Verde · short</p>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/oZuY5pBoVxg" data-video-id="oZuY5pBoVxg" data-video-title="Cabo Verde tortugas — short">Reportaje completo en mi canal · tortugas marinas</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/oZuY5pBoVxg/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/oZuY5pBoVxg" data-video-id="oZuY5pBoVxg" data-video-title="Cabo Verde tortugas — short" aria-expanded="false">Reportaje completo en mi canal · tortugas marinas</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: Reportaje completo en mi canal · tortugas marinas"><img src="https://i.ytimg.com/vi/oZuY5pBoVxg/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry">
         <p class="date">23 jun 2025 · Cabo Verde, Isla de Sal</p>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=SKmtZBocsbk" data-video-id="SKmtZBocsbk" data-video-title="Las TORTUGAS MARINAS de CABO VERDE">Las TORTUGAS MARINAS de CABO VERDE: ISLA de SAL</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/SKmtZBocsbk/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=SKmtZBocsbk" data-video-id="SKmtZBocsbk" data-video-title="Las TORTUGAS MARINAS de CABO VERDE" aria-expanded="false">Las TORTUGAS MARINAS de CABO VERDE: ISLA de SAL</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: Las TORTUGAS MARINAS de CABO VERDE: ISLA de SAL"><img src="https://i.ytimg.com/vi/SKmtZBocsbk/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry">
         <p class="date">17 mar 2025 · Tenerife</p>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=JdReaI4tyK4" data-video-id="JdReaI4tyK4" data-video-title="From SEA to SKY: 0.4.0.">From SEA to SKY: 0.4.0. The ROUTE with the GREATEST ELEVATION GAIN in all of SPAIN</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/JdReaI4tyK4/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=JdReaI4tyK4" data-video-id="JdReaI4tyK4" data-video-title="From SEA to SKY: 0.4.0." aria-expanded="false">From SEA to SKY: 0.4.0. The ROUTE with the GREATEST ELEVATION GAIN in all of SPAIN</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: From SEA to SKY: 0.4.0. The ROUTE with the GREATEST ELEVATION GAIN in all of SPAIN"><img src="https://i.ytimg.com/vi/JdReaI4tyK4/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry ig">
         <p class="date">13 nov 2024 · IG</p>
-        <h2 class="title"><a href="https://instagram.com/p/DCTzHtXAtVL/" target="_blank" rel="noopener">Cofete</a></h2>
-        <div class="thumb"><img src="assets/ig/cover-DCTzHtXAtVL.jpg" alt="Cofete — proyectoindy" loading="lazy"></div>
+        <h2 class="title"><a href="https://instagram.com/p/DCTzHtXAtVL/" target="_blank" rel="noopener" aria-expanded="false">Cofete</a></h2>
+        <button class="thumb" type="button" aria-label="Abrir en Instagram: Cofete"><img src="assets/ig/cover-DCTzHtXAtVL.jpg" alt="Cofete — proyectoindy" loading="lazy"></button>
         <div class="caption">
           <p>Cofete y sus habitantes 🐐🪿</p>
         </div>
@@ -339,20 +375,20 @@
 
       <article class="entry">
         <p class="date">8 nov 2024 · Fuerteventura · short</p>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/sKXuqm07T9M" data-video-id="sKXuqm07T9M" data-video-title="Casa Winter — short">¿Una BASE SECRETA NAZI en Canarias? Reportaje completo en mi canal</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/sKXuqm07T9M/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/sKXuqm07T9M" data-video-id="sKXuqm07T9M" data-video-title="Casa Winter — short" aria-expanded="false">¿Una BASE SECRETA NAZI en Canarias? Reportaje completo en mi canal</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: ¿Una BASE SECRETA NAZI en Canarias? Reportaje completo en mi canal"><img src="https://i.ytimg.com/vi/sKXuqm07T9M/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry">
         <p class="date">8 nov 2024 · Cofete, Fuerteventura</p>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=KrPih7GUJQM" data-video-id="KrPih7GUJQM" data-video-title="CASA WINTER: A SECRET NAZI BASE in the Canary Islands?">CASA WINTER: A SECRET NAZI BASE in the Canary Islands?</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/KrPih7GUJQM/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=KrPih7GUJQM" data-video-id="KrPih7GUJQM" data-video-title="CASA WINTER: A SECRET NAZI BASE in the Canary Islands?" aria-expanded="false">CASA WINTER: A SECRET NAZI BASE in the Canary Islands?</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: CASA WINTER: A SECRET NAZI BASE in the Canary Islands?"><img src="https://i.ytimg.com/vi/KrPih7GUJQM/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry ig">
         <p class="date">8 nov 2024 · IG</p>
-        <h2 class="title"><a href="https://instagram.com/p/DCH-xseR1lv/" target="_blank" rel="noopener">Casa Winter</a></h2>
-        <div class="thumb"><img src="assets/ig/cover-DCH-xseR1lv.jpg" alt="Casa Winter — proyectoindy" loading="lazy"></div>
+        <h2 class="title"><a href="https://instagram.com/p/DCH-xseR1lv/" target="_blank" rel="noopener" aria-expanded="false">Casa Winter</a></h2>
+        <button class="thumb" type="button" aria-label="Abrir en Instagram: Casa Winter"><img src="assets/ig/cover-DCH-xseR1lv.jpg" alt="Casa Winter — proyectoindy" loading="lazy"></button>
         <div class="caption">
           <p>Hace más de un año ya, tuve el honor de poder ir a documentar un lugar cuya historia podría tener un impacto relevante sobre la posición que ocupó España, y más concretamente Canarias, durante la Segunda Guerra Mundial.</p>
           <p>En medio de un extenso y hermoso paraje se alza Villa Winter, antigua propiedad del difunto ingeniero alemán Gustav Winter. En este lugar conocí al señor @pedro_fumero , nieto de obreros que levantaron esta casa y sobrino de los sirvientes que la cuidaban y mantenían.</p>
@@ -365,20 +401,20 @@
 
       <article class="entry">
         <p class="date">14 jul 2024 · Marruecos · short</p>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/MUyZyJpWbGw" data-video-id="MUyZyJpWbGw" data-video-title="Marruecos — short">Reportaje completo en mi canal · Marruecos</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/MUyZyJpWbGw/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/MUyZyJpWbGw" data-video-id="MUyZyJpWbGw" data-video-title="Marruecos — short" aria-expanded="false">Reportaje completo en mi canal · Marruecos</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: Reportaje completo en mi canal · Marruecos"><img src="https://i.ytimg.com/vi/MUyZyJpWbGw/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry">
         <p class="date">7 jul 2024 · Marruecos</p>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=NVXEkBGYd7Y" data-video-id="NVXEkBGYd7Y" data-video-title="MARRUECOS: Recorriendo el suroeste del país">MARRUECOS: Recorriendo el suroeste del país</a></h2>
-        <div class="thumb"><img src="https://i.ytimg.com/vi/NVXEkBGYd7Y/maxresdefault.jpg" alt="" loading="lazy"></div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=NVXEkBGYd7Y" data-video-id="NVXEkBGYd7Y" data-video-title="MARRUECOS: Recorriendo el suroeste del país" aria-expanded="false">MARRUECOS: Recorriendo el suroeste del país</a></h2>
+        <button class="thumb" type="button" aria-label="Reproducir: MARRUECOS: Recorriendo el suroeste del país"><img src="https://i.ytimg.com/vi/NVXEkBGYd7Y/maxresdefault.jpg" alt="" loading="lazy"></button>
       </article>
 
       <article class="entry ig">
         <p class="date">3 jul 2024 · IG</p>
-        <h2 class="title"><a href="https://instagram.com/p/C8-c3o5Nj3x/" target="_blank" rel="noopener">Comienza Indy</a></h2>
-        <div class="thumb"><img src="assets/ig/cover-C8-c3o5Nj3x.jpg" alt="Comienza Indy — proyectoindy" loading="lazy"></div>
+        <h2 class="title"><a href="https://instagram.com/p/C8-c3o5Nj3x/" target="_blank" rel="noopener" aria-expanded="false">Comienza Indy</a></h2>
+        <button class="thumb" type="button" aria-label="Abrir en Instagram: Comienza Indy"><img src="assets/ig/cover-C8-c3o5Nj3x.jpg" alt="Comienza Indy — proyectoindy" loading="lazy"></button>
         <div class="caption">
           <p>Comienza Indy.</p>
           <p>Indy, que hace referencia a cómo lo llamaban sus amigos en las películas, nace en honor a uno de mis grandes héroes de la infancia, Indiana Jones.</p>
@@ -443,7 +479,8 @@
         if (!videoId) return;
         currentVideoId = videoId;
         lastFocus = document.activeElement;
-        showStub('Cargando…');
+        const ytUrl = 'https://www.youtube.com/watch?v=' + encodeURIComponent(videoId);
+        showStub('Cargando vídeo · <a href="' + ytUrl + '" target="_blank" rel="noopener">Ver en YouTube ↗</a>');
         if (activeIframe) { activeIframe.remove(); activeIframe = null; }
         if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
 
@@ -462,7 +499,7 @@
         loadTimer = setTimeout(function () {
           const ytUrl = 'https://www.youtube.com/watch?v=' + encodeURIComponent(currentVideoId);
           showStub('No se pudo cargar el vídeo.<br><a href="' + ytUrl + '" target="_blank" rel="noopener">Ver en YouTube ↗</a>');
-        }, 8000);
+        }, 3000);
 
         modal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('modal-open');
@@ -499,11 +536,18 @@
           }
           return;
         }
-        // Title click — toggle inline reveal
+        // Title click — toggle inline reveal + sync aria-expanded + focus thumb
         const titleLink = e.target.closest('.entry .title a');
         if (titleLink) {
           e.preventDefault();
-          titleLink.closest('.entry').classList.toggle('open');
+          const entry = titleLink.closest('.entry');
+          const willOpen = !entry.classList.contains('open');
+          entry.classList.toggle('open');
+          titleLink.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+          if (willOpen) {
+            const thumbBtn = entry.querySelector('.thumb');
+            if (thumbBtn) thumbBtn.focus();
+          }
         }
       });
 
