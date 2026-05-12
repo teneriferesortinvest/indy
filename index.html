@@ -55,20 +55,15 @@
 
     .masthead { margin: 0 0 64px; text-align: center; }
     .masthead h1 {
-      font: 700 14px/1.6 var(--mono);
-      letter-spacing: 0;
-      margin: 0 0 2px;
-    }
-    .masthead .tag {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 400;
+      font: 600 56px/1.02 var(--mono);
+      letter-spacing: -0.015em;
+      color: #0a0703;
       margin: 0 0 28px;
     }
     .masthead .opener {
       font-size: 14px;
       line-height: 1.6;
-      margin: 0;
+      margin: 0 auto;
       max-width: 56ch;
     }
 
@@ -201,6 +196,7 @@
     @media (max-width: 640px) {
       .wrap { padding: 56px 20px 80px; }
       .masthead { margin-bottom: 48px; }
+      .masthead h1 { font-size: 38px; }
       :root { --gap: 24px; }
       .modal { padding: 12px; }
       .modal .close { top: -44px; }
