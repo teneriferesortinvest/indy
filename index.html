@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INDY — reportajes de viaje</title>
+  <meta name="description" content="Reportajes de viaje en español: Uganda, Egipto, Marruecos, San Andrés, Cabo Verde, Canarias. El proyecto de @proyectoindy. Cada destino, una historia.">
+  <link rel="canonical" href="https://teneriferesortinvest.github.io/indy/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="INDY — reportajes de viaje">
+  <meta property="og:description" content="Uganda, Egipto, Marruecos, San Andrés, Cabo Verde, Canarias. Cada destino, una historia. Nos vemos antes de lo que ustedes creen.">
+  <meta property="og:image" content="https://i.ytimg.com/vi/KrPih7GUJQM/maxresdefault.jpg">
+  <meta property="og:locale" content="es_ES">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="INDY — reportajes de viaje">
+  <meta name="twitter:description" content="Uganda, Egipto, Marruecos, San Andrés, Cabo Verde, Canarias. Cada destino, una historia.">
+  <meta name="twitter:image" content="https://i.ytimg.com/vi/KrPih7GUJQM/maxresdefault.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f6ecc9'/%3E%3Ctext x='50' y='66' font-family='ui-monospace,Menlo,monospace' font-size='62' font-weight='700' fill='%231a1407' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+
+  <style>
+    :root {
+      --bg: #f6ecc9;
+      --fg: #1a1407;
+      --muted: #6e5a2a;
+      --rule: #e3d6a6;
+      --link: #b8860b;
+      --link-visited: #7a5a08;
+      --accent: #c89a1c;
+      --tile: #e8d99b;
+      --tile-lbl: #8a7228;
+      --maxw: 720px;
+      --pad: 24px;
+      --gap: 72px;
+      --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+    body {
+      font: 400 14px/1.6 var(--mono);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:visited { color: var(--link-visited); }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 80px var(--pad) 96px;
+    }
+
+    .masthead { margin: 0 0 72px; }
+    .masthead h1 {
+      font: 700 14px/1.6 var(--mono);
+      letter-spacing: 0;
+      margin: 0 0 2px;
+    }
+    .masthead .tag {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0 0 28px;
+    }
+    .masthead .opener {
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 56ch;
+    }
+
+    .entries {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+    }
+    .entry { display: block; }
+    .entry .date {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 0 0 2px;
+    }
+    .entry .title {
+      font: 700 14px/1.4 var(--mono);
+      letter-spacing: 0;
+      margin: 0 0 14px;
+      text-wrap: pretty;
+    }
+    .entry .title a { color: var(--link); }
+    .entry .title a.ext::after {
+      content: " ↗";
+      font-weight: 400;
+      color: var(--muted);
+    }
+    .entry .thumb {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--tile);
+      overflow: hidden;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      position: relative;
+    }
+    .entry .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .entry .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 8px 0 0;
+      letter-spacing: 0.02em;
+    }
+
+    .ig { margin-top: 96px; }
+    .ig h2 {
+      font: 700 14px/1.6 var(--mono);
+      letter-spacing: 0;
+      margin: 0 0 2px;
+    }
+    .ig .ig-cap {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 18px;
+    }
+    .ig .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .ig .tile {
+      display: block;
+      aspect-ratio: 1 / 1;
+      position: relative;
+      overflow: hidden;
+      background: var(--tile);
+    }
+    .ig .tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ig .tile .ig-date {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 6px 8px;
+      font-size: 11px;
+      color: #fff;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+      letter-spacing: 0.02em;
+    }
+    .ig .ig-more {
+      margin: 14px 0 0;
+      font-size: 14px;
+    }
+    .ig .ig-more a { color: var(--link); }
+
+    .contact { margin-top: 96px; }
+    .contact h2 {
+      font: 700 14px/1.6 var(--mono);
+      letter-spacing: 0;
+      margin: 0 0 8px;
+    }
+    .contact p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0 0 4px;
+      max-width: 56ch;
+    }
+
+    footer {
+      margin-top: 96px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    footer .tagline {
+      color: var(--fg);
+      margin: 0 0 28px;
+      font-size: 14px;
+    }
+    footer .social {
+      margin: 0 0 12px;
+      display: flex;
+      gap: 18px;
+    }
+    footer .social a { color: var(--link); }
+    footer .copy { margin: 0; font-size: 13px; }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 100;
+    }
+    .modal[aria-hidden="false"] { display: flex; }
+    .modal .frame {
+      width: 100%;
+      max-width: 1100px;
+      aspect-ratio: 16/9;
+      background: #000;
+      position: relative;
+    }
+    .modal .frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .modal .stub {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font: 400 13px/1.4 var(--mono);
+      letter-spacing: 0.06em;
+      text-align: center;
+      padding: 24px;
+      text-transform: uppercase;
+    }
+    .modal .close {
+      position: absolute;
+      top: -36px;
+      right: 0;
+      background: transparent;
+      color: #fff;
+      border: 0;
+      font: 400 14px/1 var(--mono);
+      cursor: pointer;
+      padding: 8px;
+      letter-spacing: 0.08em;
+    }
+    .modal .close:hover { text-decoration: underline; }
+    .modal .hint {
+      position: absolute;
+      bottom: -28px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #999;
+      font: 400 12px/1 var(--mono);
+      letter-spacing: 0.04em;
+    }
+    body.modal-open { overflow: hidden; }
+
+    @media (max-width: 640px) {
+      .wrap { padding: 56px 20px 80px; }
+      .masthead { margin-bottom: 56px; }
+      :root { --gap: 56px; }
+      .ig .grid { grid-template-columns: repeat(2, 1fr); gap: 3px; }
+      .modal { padding: 12px; }
+      .modal .close { top: -32px; }
+    }
+    @media (max-width: 380px) {
+      .ig .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="masthead">
+      <h1>INDY</h1>
+      <p class="tag">@proyectoindy</p>
+      <p class="opener">Por fin empieza Indy. Por fin empiezan las aventuras.</p>
+    </header>
+
+    <main class="entries" id="entries">
+
+      <article class="entry">
+        <p class="date">2026-05 · Uganda</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/watch?v=V2kE7KwYJ44" data-video-id="V2kE7KwYJ44" data-video-title="UGANDA: El GORILA de MONTAÑA">UGANDA: El GORILA de MONTAÑA</a></h2>
+        <button class="thumb" type="button" data-video-id="V2kE7KwYJ44" data-video-title="UGANDA: El GORILA de MONTAÑA" aria-label="Reproducir: UGANDA: El GORILA de MONTAÑA">
+          <img src="https://i.ytimg.com/vi/V2kE7KwYJ44/maxresdefault.jpg" alt="UGANDA: El GORILA de MONTAÑA — miniatura" loading="lazy">
+        </button>
+        <p class="meta">24:18</p>
+      </article>
+
+      <article class="entry">
+        <p class="date">2025-12 · Egipto</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/watch?v=LaCIEFq6LhY" data-video-id="LaCIEFq6LhY" data-video-title="El ANTIGUO EGIPTO: Tierra de FARAONES">El ANTIGUO EGIPTO: Tierra de FARAONES</a></h2>
+        <button class="thumb" type="button" data-video-id="LaCIEFq6LhY" data-video-title="El ANTIGUO EGIPTO: Tierra de FARAONES" aria-label="Reproducir: El ANTIGUO EGIPTO: Tierra de FARAONES">
+          <img src="https://i.ytimg.com/vi/LaCIEFq6LhY/maxresdefault.jpg" alt="El ANTIGUO EGIPTO: Tierra de FARAONES — miniatura" loading="lazy">
+        </button>
+        <p class="meta">25:32</p>
+      </article>
+
+      <article class="entry">
+        <p class="date">2025-08 · San Andrés, Colombia</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/watch?v=rkhf6b6ewww" data-video-id="rkhf6b6ewww" data-video-title="SAN ANDRÉS, el CARIBE COLOMBIANO">SAN ANDRÉS, el CARIBE COLOMBIANO: PLAYAS, ARRECIFES DE CORAL, RAIZALES Y PIRATAS</a></h2>
+        <button class="thumb" type="button" data-video-id="rkhf6b6ewww" data-video-title="SAN ANDRÉS, el CARIBE COLOMBIANO" aria-label="Reproducir: SAN ANDRÉS, el CARIBE COLOMBIANO">
+          <img src="https://i.ytimg.com/vi/rkhf6b6ewww/maxresdefault.jpg" alt="SAN ANDRÉS, el CARIBE COLOMBIANO — miniatura" loading="lazy">
+        </button>
+        <p class="meta">16:29</p>
+      </article>
+
+      <article class="entry">
+        <p class="date">2025-07 · Cabo Verde, Isla de Sal</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/watch?v=SKmtZBocsbk" data-video-id="SKmtZBocsbk" data-video-title="Las TORTUGAS MARINAS de CABO VERDE">Las TORTUGAS MARINAS de CABO VERDE: ISLA de SAL</a></h2>
+        <button class="thumb" type="button" data-video-id="SKmtZBocsbk" data-video-title="Las TORTUGAS MARINAS de CABO VERDE" aria-label="Reproducir: Las TORTUGAS MARINAS de CABO VERDE">
+          <img src="https://i.ytimg.com/vi/SKmtZBocsbk/maxresdefault.jpg" alt="Las TORTUGAS MARINAS de CABO VERDE — miniatura" loading="lazy">
+        </button>
+        <p class="meta">18:33</p>
+      </article>
+
+      <article class="entry">
+        <p class="date">2025-05 · Tenerife</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/watch?v=JdReaI4tyK4" data-video-id="JdReaI4tyK4" data-video-title="From SEA to SKY: 0.4.0.">From SEA to SKY: 0.4.0. The ROUTE with the GREATEST ELEVATION GAIN in all of SPAIN</a></h2>
+        <button class="thumb" type="button" data-video-id="JdReaI4tyK4" data-video-title="From SEA to SKY: 0.4.0." aria-label="Reproducir: From SEA to SKY: 0.4.0.">
+          <img src="https://i.ytimg.com/vi/JdReaI4tyK4/maxresdefault.jpg" alt="From SEA to SKY: 0.4.0. — miniatura" loading="lazy">
+        </button>
+        <p class="meta">21:37</p>
+      </article>
+
+      <article class="entry">
+        <p class="date">2025-04 · Cofete, Fuerteventura</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/watch?v=KrPih7GUJQM" data-video-id="KrPih7GUJQM" data-video-title="CASA WINTER: A SECRET NAZI BASE in the Canary Islands?">CASA WINTER: A SECRET NAZI BASE in the Canary Islands?</a></h2>
+        <button class="thumb" type="button" data-video-id="KrPih7GUJQM" data-video-title="CASA WINTER: A SECRET NAZI BASE in the Canary Islands?" aria-label="Reproducir: CASA WINTER">
+          <img src="https://i.ytimg.com/vi/KrPih7GUJQM/maxresdefault.jpg" alt="CASA WINTER — miniatura" loading="lazy">
+        </button>
+        <p class="meta">25:23</p>
+      </article>
+
+      <article class="entry">
+        <p class="date">2024-09 · Marruecos</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/watch?v=NVXEkBGYd7Y" data-video-id="NVXEkBGYd7Y" data-video-title="MARRUECOS: Recorriendo el suroeste del país">MARRUECOS: Recorriendo el suroeste del país</a></h2>
+        <button class="thumb" type="button" data-video-id="NVXEkBGYd7Y" data-video-title="MARRUECOS: Recorriendo el suroeste del país" aria-label="Reproducir: MARRUECOS">
+          <img src="https://i.ytimg.com/vi/NVXEkBGYd7Y/maxresdefault.jpg" alt="MARRUECOS — miniatura" loading="lazy">
+        </button>
+        <p class="meta">19:28</p>
+      </article>
+
+      <article class="entry">
+        <p class="date">Short · Egipto</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/shorts/Onbex5FnwxI" data-video-id="Onbex5FnwxI" data-video-title="Egipto — short">Reportaje completo en mi canal · Egipto</a></h2>
+        <button class="thumb" type="button" data-video-id="Onbex5FnwxI" data-video-title="Egipto — short" aria-label="Reproducir: Egipto short">
+          <img src="https://i.ytimg.com/vi/Onbex5FnwxI/maxresdefault.jpg" alt="Egipto short — miniatura" loading="lazy">
+        </button>
+      </article>
+
+      <article class="entry">
+        <p class="date">Short · San Andrés</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/shorts/sKXNlxnLy0M" data-video-id="sKXNlxnLy0M" data-video-title="San Andrés — short">San Andrés, el Caribe Colombiano</a></h2>
+        <button class="thumb" type="button" data-video-id="sKXNlxnLy0M" data-video-title="San Andrés — short" aria-label="Reproducir: San Andrés short">
+          <img src="https://i.ytimg.com/vi/sKXNlxnLy0M/maxresdefault.jpg" alt="San Andrés short — miniatura" loading="lazy">
+        </button>
+      </article>
+
+      <article class="entry">
+        <p class="date">Short · Tenerife</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/shorts/CuF1I8mnkUU" data-video-id="CuF1I8mnkUU" data-video-title="0.4.0. — short">La ruta con mayor desnivel de España: la 0.4.0.</a></h2>
+        <button class="thumb" type="button" data-video-id="CuF1I8mnkUU" data-video-title="0.4.0. — short" aria-label="Reproducir: 0.4.0. short">
+          <img src="https://i.ytimg.com/vi/CuF1I8mnkUU/maxresdefault.jpg" alt="0.4.0. short — miniatura" loading="lazy">
+        </button>
+      </article>
+
+      <article class="entry">
+        <p class="date">Short · Cabo Verde</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/shorts/oZuY5pBoVxg" data-video-id="oZuY5pBoVxg" data-video-title="Cabo Verde tortugas — short">Reportaje completo en mi canal · tortugas marinas</a></h2>
+        <button class="thumb" type="button" data-video-id="oZuY5pBoVxg" data-video-title="Cabo Verde tortugas — short" aria-label="Reproducir: tortugas short">
+          <img src="https://i.ytimg.com/vi/oZuY5pBoVxg/maxresdefault.jpg" alt="Tortugas short — miniatura" loading="lazy">
+        </button>
+      </article>
+
+      <article class="entry">
+        <p class="date">Short · Fuerteventura</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/shorts/sKXuqm07T9M" data-video-id="sKXuqm07T9M" data-video-title="Casa Winter — short">¿Una BASE SECRETA NAZI en Canarias? Reportaje completo en mi canal</a></h2>
+        <button class="thumb" type="button" data-video-id="sKXuqm07T9M" data-video-title="Casa Winter — short" aria-label="Reproducir: Casa Winter short">
+          <img src="https://i.ytimg.com/vi/sKXuqm07T9M/maxresdefault.jpg" alt="Casa Winter short — miniatura" loading="lazy">
+        </button>
+      </article>
+
+      <article class="entry">
+        <p class="date">Short · Marruecos</p>
+        <h2 class="title"><a class="ext" href="https://www.youtube.com/shorts/MUyZyJpWbGw" data-video-id="MUyZyJpWbGw" data-video-title="Marruecos — short">Reportaje completo en mi canal · Marruecos</a></h2>
+        <button class="thumb" type="button" data-video-id="MUyZyJpWbGw" data-video-title="Marruecos — short" aria-label="Reproducir: Marruecos short">
+          <img src="https://i.ytimg.com/vi/MUyZyJpWbGw/maxresdefault.jpg" alt="Marruecos short — miniatura" loading="lazy">
+        </button>
+      </article>
+
+    </main>
+
+    <section class="ig" aria-label="Instagram">
+      <h2>En Instagram</h2>
+      <p class="ig-cap">Lo que no entra en los reportajes.</p>
+      <div class="grid">
+        <a class="tile" href="https://instagram.com/p/DQ5EEaZDTSm/" target="_blank" rel="noopener" aria-label="Post de Instagram — 10 nov 2025">
+          <img src="assets/ig/cover-DQ5EEaZDTSm.jpg" alt="10 nov 2025 — proyectoindy" loading="lazy">
+          <span class="ig-date">10 nov 2025</span>
+        </a>
+        <a class="tile" href="https://instagram.com/p/DMtWn6DIFqX/" target="_blank" rel="noopener" aria-label="Post de Instagram — 29 jul 2025">
+          <img src="assets/ig/cover-DMtWn6DIFqX.jpg" alt="29 jul 2025 — proyectoindy" loading="lazy">
+          <span class="ig-date">29 jul 2025</span>
+        </a>
+        <a class="tile" href="https://instagram.com/p/DCTzHtXAtVL/" target="_blank" rel="noopener" aria-label="Post de Instagram — 13 nov 2024">
+          <img src="assets/ig/cover-DCTzHtXAtVL.jpg" alt="13 nov 2024 — proyectoindy" loading="lazy">
+          <span class="ig-date">13 nov 2024</span>
+        </a>
+        <a class="tile" href="https://instagram.com/p/DCH-xseR1lv/" target="_blank" rel="noopener" aria-label="Post de Instagram — 8 nov 2024 — Casa Winter">
+          <img src="assets/ig/cover-DCH-xseR1lv.jpg" alt="8 nov 2024 — Casa Winter — proyectoindy" loading="lazy">
+          <span class="ig-date">8 nov 2024</span>
+        </a>
+        <a class="tile" href="https://instagram.com/p/C8-c3o5Nj3x/" target="_blank" rel="noopener" aria-label="Post de Instagram — 3 jul 2024 — Comienza Indy">
+          <img src="assets/ig/cover-C8-c3o5Nj3x.jpg" alt="3 jul 2024 — Comienza Indy — proyectoindy" loading="lazy">
+          <span class="ig-date">3 jul 2024</span>
+        </a>
+      </div>
+      <p class="ig-more"><a href="https://instagram.com/proyectoindy" target="_blank" rel="noopener">Ver más en @proyectoindy →</a></p>
+    </section>
+
+    <section class="contact" aria-label="Contacto">
+      <h2>Contacto</h2>
+      <p>Para colaboraciones, prensa o cualquier consulta:</p>
+      <p><a href="mailto:" data-email-placeholder="true">[email pendiente de confirmación]</a></p>
+    </section>
+
+    <footer>
+      <p class="tagline">Nos vemos antes de lo que ustedes creen.</p>
+      <p class="social">
+        <a href="https://www.youtube.com/@proyectoindy" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/proyectoindy" target="_blank" rel="noopener">Instagram</a>
+      </p>
+      <p class="copy">© INDY · 2026</p>
+    </footer>
+
+  </div>
+
+  <div class="modal" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Reproductor de vídeo">
+    <div class="frame">
+      <button class="close" type="button" aria-label="Cerrar">× CERRAR</button>
+      <div class="stub" id="video-stub">Cargando…</div>
+      <p class="hint">Pulsa Esc para cerrar</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const modal = document.getElementById('video-modal');
+      const frame = modal.querySelector('.frame');
+      const closeBtn = modal.querySelector('.close');
+      const stub = modal.querySelector('#video-stub');
+      let activeIframe = null;
+      let lastFocus = null;
+
+      function openVideo(videoId, title) {
+        if (!videoId) return;
+        lastFocus = document.activeElement;
+        stub.style.display = 'flex';
+        stub.textContent = 'Cargando…';
+        if (activeIframe) { activeIframe.remove(); activeIframe = null; }
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0&modestbranding=1';
+        iframe.title = title || 'Reproductor de vídeo';
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.addEventListener('load', function () { stub.style.display = 'none'; });
+        iframe.addEventListener('error', function () {
+          stub.style.display = 'flex';
+          stub.textContent = 'No se pudo cargar el vídeo. Ábrelo en YouTube.';
+        });
+        frame.insertBefore(iframe, stub);
+        activeIframe = iframe;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        closeBtn.focus();
+      }
+
+      function closeVideo() {
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        if (activeIframe) {
+          activeIframe.src = 'about:blank';
+          activeIframe.remove();
+          activeIframe = null;
+        }
+        if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+      }
+
+      document.getElementById('entries').addEventListener('click', function (e) {
+        const trigger = e.target.closest('[data-video-id]');
+        if (!trigger) return;
+        e.preventDefault();
+        openVideo(trigger.getAttribute('data-video-id'), trigger.getAttribute('data-video-title'));
+      });
+
+      closeBtn.addEventListener('click', closeVideo);
+
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeVideo();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeVideo();
+      });
+    })();
+  </script>
+</body>
+</html>
