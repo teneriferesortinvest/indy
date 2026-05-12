@@ -259,6 +259,12 @@
         <div class="thumb"><img src="https://i.ytimg.com/vi/LaCIEFq6LhY/maxresdefault.jpg" alt="" loading="lazy"></div>
       </article>
 
+      <article class="entry ig">
+        <p class="date">10 nov 2025 · IG</p>
+        <h2 class="title"><a href="https://instagram.com/p/DQ5EEaZDTSm/" target="_blank" rel="noopener">Casa caribeña</a></h2>
+        <div class="thumb"><img src="assets/ig/cover-DQ5EEaZDTSm.jpg" alt="Casa caribeña — proyectoindy" loading="lazy"></div>
+      </article>
+
       <article class="entry">
         <p class="date">5 ago 2025 · San Andrés · short</p>
         <h2 class="title"><a href="https://www.youtube.com/shorts/sKXNlxnLy0M" data-video-id="sKXNlxnLy0M" data-video-title="San Andrés — short">San Andrés, el Caribe Colombiano</a></h2>
@@ -269,6 +275,12 @@
         <p class="date">5 ago 2025 · San Andrés, Colombia</p>
         <h2 class="title"><a href="https://www.youtube.com/watch?v=rkhf6b6ewww" data-video-id="rkhf6b6ewww" data-video-title="SAN ANDRÉS, el CARIBE COLOMBIANO">SAN ANDRÉS, el CARIBE COLOMBIANO: PLAYAS, ARRECIFES DE CORAL, RAIZALES Y PIRATAS</a></h2>
         <div class="thumb"><img src="https://i.ytimg.com/vi/rkhf6b6ewww/maxresdefault.jpg" alt="" loading="lazy"></div>
+      </article>
+
+      <article class="entry ig">
+        <p class="date">29 jul 2025 · IG</p>
+        <h2 class="title"><a href="https://instagram.com/p/DMtWn6DIFqX/" target="_blank" rel="noopener">Tortugas marinas</a></h2>
+        <div class="thumb"><img src="assets/ig/cover-DMtWn6DIFqX.jpg" alt="Tortugas marinas — proyectoindy" loading="lazy"></div>
       </article>
 
       <article class="entry">
@@ -295,6 +307,12 @@
         <div class="thumb"><img src="https://i.ytimg.com/vi/JdReaI4tyK4/maxresdefault.jpg" alt="" loading="lazy"></div>
       </article>
 
+      <article class="entry ig">
+        <p class="date">13 nov 2024 · IG</p>
+        <h2 class="title"><a href="https://instagram.com/p/DCTzHtXAtVL/" target="_blank" rel="noopener">Cofete</a></h2>
+        <div class="thumb"><img src="assets/ig/cover-DCTzHtXAtVL.jpg" alt="Cofete — proyectoindy" loading="lazy"></div>
+      </article>
+
       <article class="entry">
         <p class="date">8 nov 2024 · Fuerteventura · short</p>
         <h2 class="title"><a href="https://www.youtube.com/shorts/sKXuqm07T9M" data-video-id="sKXuqm07T9M" data-video-title="Casa Winter — short">¿Una BASE SECRETA NAZI en Canarias? Reportaje completo en mi canal</a></h2>
@@ -305,6 +323,12 @@
         <p class="date">8 nov 2024 · Cofete, Fuerteventura</p>
         <h2 class="title"><a href="https://www.youtube.com/watch?v=KrPih7GUJQM" data-video-id="KrPih7GUJQM" data-video-title="CASA WINTER: A SECRET NAZI BASE in the Canary Islands?">CASA WINTER: A SECRET NAZI BASE in the Canary Islands?</a></h2>
         <div class="thumb"><img src="https://i.ytimg.com/vi/KrPih7GUJQM/maxresdefault.jpg" alt="" loading="lazy"></div>
+      </article>
+
+      <article class="entry ig">
+        <p class="date">8 nov 2024 · IG</p>
+        <h2 class="title"><a href="https://instagram.com/p/DCH-xseR1lv/" target="_blank" rel="noopener">Casa Winter</a></h2>
+        <div class="thumb"><img src="assets/ig/cover-DCH-xseR1lv.jpg" alt="Casa Winter — proyectoindy" loading="lazy"></div>
       </article>
 
       <article class="entry">
@@ -319,12 +343,13 @@
         <div class="thumb"><img src="https://i.ytimg.com/vi/NVXEkBGYd7Y/maxresdefault.jpg" alt="" loading="lazy"></div>
       </article>
 
-    </main>
+      <article class="entry ig">
+        <p class="date">3 jul 2024 · IG</p>
+        <h2 class="title"><a href="https://instagram.com/p/C8-c3o5Nj3x/" target="_blank" rel="noopener">Comienza Indy</a></h2>
+        <div class="thumb"><img src="assets/ig/cover-C8-c3o5Nj3x.jpg" alt="Comienza Indy — proyectoindy" loading="lazy"></div>
+      </article>
 
-    <section class="ig" aria-label="Instagram">
-      <h2>Instagram</h2>
-      <p><a href="https://instagram.com/proyectoindy" target="_blank" rel="noopener">@proyectoindy →</a></p>
-    </section>
+    </main>
 
     <section class="contact" aria-label="Contacto">
       <h2>Contacto</h2>
@@ -413,17 +438,23 @@
       }
 
       document.getElementById('entries').addEventListener('click', function (e) {
-        // Let modified / non-primary clicks through (Cmd-click to open in new tab, etc.)
+        // Modifier / non-primary clicks pass through
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-        // Thumb click → open video modal
+        // Thumb click — video → modal, IG → open external
         const thumb = e.target.closest('.entry .thumb');
         if (thumb) {
           e.preventDefault();
-          const link = thumb.closest('.entry').querySelector('.title a');
-          if (link) openVideo(link.dataset.videoId, link.dataset.videoTitle);
+          const entry = thumb.closest('.entry');
+          const link = entry.querySelector('.title a');
+          if (!link) return;
+          if (entry.classList.contains('ig')) {
+            window.open(link.href, '_blank', 'noopener');
+          } else {
+            openVideo(link.dataset.videoId, link.dataset.videoTitle);
+          }
           return;
         }
-        // Title click → toggle inline thumbnail
+        // Title click — toggle inline reveal
         const titleLink = e.target.closest('.entry .title a');
         if (titleLink) {
           e.preventDefault();
